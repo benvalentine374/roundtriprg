@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>RTRG | Payment</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@poynt">
+<meta property="og:title" content="Online payment @ Round Trip RG">
+<meta property="og:description" content="Please enter any details in the notes section">
+<meta property="og:image" content="">
+<meta property="og:url" content="http://pay.roundtriprg.com/">
+<meta property="product:price:amount" content="">
+<meta property="product:price:currency" content="USD">
+<meta property="og:type" content="og:product">
+<link rel="manifest" href="https://cdn.poynt.net/checkout/manifest.json">
+<meta name="theme-color" content="#673ab8">
+<link rel="shortcut icon" href="images/logo-title.png">   <!-- favicon -->
+<link href="pay_files/bundle.08385.css" rel="stylesheet">
+<meta http-equiv="origin-trial" id="origin-trial" content="Ayudt5SzRWp86yExqv4T3+PiWzcX+WBtprm+ux6vfIGn5Dg3JSrZL2Y5UkppRzYnVyYzu8hvj+Q4pdGSWsLVYgMAAABgeyJvcmlnaW4iOiJodHRwczovL3BheS5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJUcGNkIiwiZXhwaXJ5IjoxNzM1MzQzOTk5LCJpc1RoaXJkUGFydHkiOnRydWV9">
+
+<style type="text/css">
+  .gpay-card-info-container {
+    padding: 0;
+    position: relative;
+    min-width: 240px;
+    height: 40px;
+    min-height: 40px;
+    border-radius: 4px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 1px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    cursor: pointer;
+    border: 0px;
+  }
+
+  .gpay-card-info-container.black,
+  .gpay-card-info-animation-container.black {
+    background-color: #000;
+    box-shadow: none;
+  }
+
+  .gpay-card-info-container.white,
+  .gpay-card-info-animation-container.white {
+    background-color: #fff;
+  }
+
+  .gpay-card-info-container.black.border-inset,
+  .gpay-card-info-animation-container.black.border-inset {
+    outline: 1px solid #757575;
+    outline-offset: -1px;
+  }
+
+  .gpay-card-info-container.white.border-inset,
+  .gpay-card-info-animation-container.white.border-inset {
+    outline: 1px solid #3C4043;
+    outline-offset: -1px;
+  }
+
+  .gpay-card-info-container.black.active {
+    background-color: #5f6368;
+  }
+
+  .gpay-card-info-container.black.hover,
+  .gpay-card-info-animation-container.black.hover {
+    background-color: #3c4043;
+  }
+
+  .gpay-card-info-container.white.active {
+    background-color: #fff;
+  }
+
+  .gpay-card-info-container.white.focus {
+    box-shadow: #e8e8e8 0 1px 1px 0, #e8e8e8 0 1px 3px;
+  }
+
+  .gpay-card-info-container.white.hover,
+  .gpay-card-info-animation-container.white.hover {
+    background-color: #f8f8f8;
+  }
+
+  .gpay-card-info-iframe {
+    border: 0;
+    display: block;
+    height: 100%;
+    margin: auto;
+    max-width: 100%;
+    width: 240px;
+  }
+
+  .gpay-card-info-container-fill .gpay-card-info-iframe{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .gpay-card-info-container-fill,
+    .gpay-card-info-container-fill > .gpay-card-info-container{
+    width: 100%;
+    height: inherit;
+  }
+
+
+  .gpay-card-info-container-fill .gpay-card-info-placeholder-container {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-top: 3px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .gpay-card-info-container-fill .gpay-card-info-placeholder-svg-container{
+    position: relative;
+    width: 60%;
+    height: inherit;
+    max-height: 80%;
+    margin-right: -20%;
+  }
+
+  .gpay-card-info-container-fill .gpay-card-info-placeholder-svg-container > svg {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    max-width: 100%;
+  }
+</style><style type="text/css">
+  .gpay-card-info-animation-container {
+    display: flex;
+    width:100%;
+    position: absolute;
+    z-index: 100;
+    height: 40px;
+    border-radius: 4px;
+  }
+
+  .gpay-card-info-placeholder-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    justify-content: center;
+  }
+
+  .gpay-card-info-animated-progress-bar-container {
+    display: flex;
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+  }
+
+  .gpay-card-info-animated-progress-bar-container.border-inset {
+    z-index: -1;
+  }
+
+  .gpay-card-info-animated-progress-bar {
+    border-radius: 4px 4px 0px 0px;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-name: gpayProgressFill;
+    animation-timing-function: cubic-bezier(0.97, 0.33, 1, 1);
+    background: #caccce;
+    width: 100%;
+    height: 3px;
+    max-height: 3px;
+  }
+
+  .gpay-card-info-animated-progress-bar-indicator {
+    border-radius: 4px 4px 0px 0px;
+    max-width: 20px;
+    min-width: 20px;
+    height: 3px;
+    max-height: 3px;
+    background: linear-gradient(to right, #caccce 30%, #acaeaf 60%);
+    animation-delay: 0.5s;
+    animation-duration: 1.7s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: gpayPlaceHolderShimmer;
+  }
+
+  .gpay-card-info-animated-progress-bar.no-radius {
+    border-radius: 0;
+  }
+
+  .gpay-card-info-animated-progress-bar-indicator.no-radius {
+    border-radius: 0;
+  }
+
+  .gpay-card-info-iframe-fade-in {
+    animation-fill-mode: forwards;
+    animation-duration: 0.6s;
+    animation-name: gpayIframeFadeIn;
+  }
+
+  .gpay-card-info-animation-container-fade-out {
+    animation-fill-mode: forwards;
+    animation-duration: 0.6s;
+    animation-name: gpayPlaceHolderFadeOut;
+  }
+
+  .gpay-card-info-animation-gpay-logo {
+    margin: 13px 7px 0px  39px;
+    background-origin: content-box;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 17px;
+    max-height: 17px;
+    max-width: 41px;
+    min-width: 41px;
+  }
+
+  .gpay-card-info-animation-gpay-logo.black {
+    background-image: url("https://www.gstatic.com/instantbuy/svg/dark_gpay.svg");
+  }
+
+  .gpay-card-info-animation-gpay-logo.white {
+    background-image: url("https://www.gstatic.com/instantbuy/svg/light_gpay.svg");
+  }
+
+  @keyframes gpayPlaceHolderShimmer{
+    0% {
+      margin-left: 0px;
+    }
+    100% {
+      margin-left: calc(100% - 20px);
+    }
+  }
+
+  @keyframes gpayIframeFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+  }
+
+  @keyframes gpayPlaceHolderFadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+  }
+
+  @keyframes gpayProgressFill {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  .gpay-card-info-container-fill .gpay-card-info-animation-container{
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .gpay-card-info-container-fill .gpay-card-info-animation-gpay-logo{
+    background-position: right;
+    margin: 0 0 0 0;
+    max-width: none;
+    width: 25%;
+    height:inherit;
+    max-height: 50%;
+  }
+
+</style><style type="text/css">
+  .gpay-card-info-container.black,
+  .gpay-button.black {
+    outline: 1px solid #757575;
+    box-shadow: none;
+  }
+  .gpay-card-info-container.black.focus,
+  .gpay-button.black.focus {
+    outline: 1px auto Highlight;
+    outline: 1px auto -webkit-focus-ring-color;
+    box-shadow: none;
+  }
+  .gpay-card-info-container.white,
+  .gpay-button.white {
+    outline: 1px solid #3C4043;
+    box-shadow: none;
+  }
+  .gpay-card-info-container.white.focus,
+  .gpay-button.white.focus {
+    outline: 1px auto Highlight;
+    outline: 1px auto -webkit-focus-ring-color;
+    box-shadow: none;
+  }
+</style>
+
+</head>
+
+<body>
+
+  
+
+  <div id="app">
+    <!-- ***** Header Start ***** -->
+    <div id="page-header"></div>
+
+    <div class="header">
+      <div class="header-container">
+        <div class="header-business-name">Round Trip RG</div>
+      </div>
+    </div>
+  
+    <div class="single-page-layout">
+      <div class="single-page-item">
+        <div class="container item-description-custom-amount">
+          <h1 class="item-layout-title">Online paymen</h1>
+          <p class="item-layout-description">Please enter any details in the notes section</p>
+          
+          <form>
+            <label>Enter Amount<span class="required-mark">*</span></label>
+            <input type="text" class="custom-amount-input" value="$0.00">
+          </form>
+          
+          <label class="item-payment-note"><span>Notes</span></label>
+          <div class="item-payment-note-input-container">
+            <form>
+              <textarea type="text" placeholder="Add any details or notes about your purchase here." rows="2" class="item-payment-note-input"></textarea>
+            </form>
+          </div>
+        </div>
+  
+        <div class="container poynt-collect-form-wallet">
+          <div>
+            <div id="wallet-payments-container">
+              <div id="wallet-buttons-container" class="" style="display: flex; justify-content: center; align-items: center; flex-direction: row; width: 100%; gap: 0.4rem; margin-bottom: 1rem;">
+                <div class="gpay-card-info-container-fill" id="googlepay-button-container" style="min-width: 240px; min-height: 40px; margin: 5px auto; width: 100%; height: 40px;">
+                  <button type="button" aria-label="Pay with GPay" id="gpay-button-online-api-id" class="gpay-card-info-container black pay en border-inset hover" style="width: 100%; height: 100%; min-height: 40px; min-width: 240px; border: unset; outline-offset: 0px; outline: revert; border-radius: 5px;">
+                    <div class="gpay-card-info-animation-container black border-inset gpay-card-info-animation-container-fade-out hover">
+                      <div class="gpay-card-info-placeholder-container">
+                        <div class="gpay-card-info-animation-gpay-logo black"></div>
+                        <div class="gpay-card-info-placeholder-svg-container">
+                          <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" direction="ltr" viewBox="0 0 130 36">
+                            <style> 
+                              @import url(//fonts.googleapis.com/css?family=Google+Sans_old:500)
+                            </style>
+                            <line x1="8" y1="7" x2="8" y2="26" stroke="#5f6368" stroke-width="2"></line>
+                            <image x="16" y="2.5" width="37.5" height="29" preserveAspectRatio="none" xlink:href="pay_files/payment_white_36dp.png"></image>
+                            <text x="57" y="22" class="small" font-family="'Google Sans', sans-serif" font-size="15px" fill="#fff">••••••</text>
+                          </svg>
+                        </div>
+                      </div>
+                      <div class="gpay-card-info-animated-progress-bar-container border-inset">
+                        <div class="gpay-card-info-animated-progress-bar no-radius">
+                          <div class="gpay-card-info-animated-progress-bar-indicator no-radius"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <iframe class="gpay-card-info-iframe gpay-card-info-iframe-fade-in" scrolling="no" src="pay_files/generate_gpay_btn_img.html"></iframe>
+                  </button>
+                </div>
+              </div>
+            </div>
+  
+            <div id="poynt-collect" class="poynt-collect">
+              <script src="pay_files/collect.js" async=""></script>
+              <iframe name="poynt-collect-v2-iframe" id="poynt-collect-v2-iframe" height="507" width="100%" frameborder="0" src="pay_files/index.html"></iframe>
+            </div>
+  
+            <div id="response"></div>
+  
+            <div class="pay-button-container">
+              <button disabled="disabled" class="pay-button">Pay $0.00</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- ***** Footer Start ***** -->
+    <div id="page-footer"></div>
+  </div>
+  
+  <script>
+    "undefined" === typeof _trfq || (window._trfq = []);
+  
+      "undefined" === typeof _trfd && (window._trfd = []), _trfd.push({ ap: "PaylinkC2" });</script><script>/* this functionality is needed for integration in WAM*/
+      function sendMessage(sender, action, value) {
+        window.parent.postMessage({ sender: sender, action: action, value: value }, "*");
+      }
+
+      let scrollHeight = 0;
+      const sendHeight = (height) => {
+        sendMessage("pay-buttons-js", "setHeight", height);
+      };
+
+      function checkHeight() {
+        const appElement = document.getElementById("app");
+        if (appElement && appElement.scrollHeight !== scrollHeight) {
+          scrollHeight = appElement.scrollHeight;
+          sendHeight(scrollHeight);
+        }
+      }
+
+      var observer = new MutationObserver(checkHeight);
+      observer.observe(document.body, {
+        subtree: true,
+        attributes: true,
+        childList: true,
+        characterData: true,
+      });
+
+      checkHeight();</script><script>window.__PAYLINK__ = ""; // to avoid errors
+      window.payLink = {"checkoutUrlId":"13c235a3-0ef0-433f-8d52-b99fcdd6d624","urlType":"P","businessId":"552301dc-f952-4f82-91e3-f9351f665800","storeId":"417c0ec6-9bcb-48af-936f-6dc235b622a6","orderText":null,"title":"Online payment","shortName":"a2298bae-f87e-42c0-95fd-acd","description":"Please enter any details in the notes section","buttonText":null,"picture":"","amount":0,"currency":"USD","isCustomPrice":1,"status":"A","createdAt":"2025-02-12T06:21:13.000Z","updatedAt":"2025-02-12T06:22:21.315Z","metadata":null,"productId":null,"domain":"pay.roundtriprg.com","isDefault":1,"acquirer":"POYNT","businessWebsite":"roundtriprg.com","businessPhone":null,"ecommerceBusinessName":"Round Trip RG","ecommerceCheckoutLogoUrl":"","ecommerceLogoHeight":"60","ecommerceLogoAlignment":"","ecommerceShowDisplayName":"1","ecommerceBackgroundColor":"","env":"production","ecommerceLocaleLanguage":"en-us","enableGratuity":"0","tipPercent1":"15","tipPercent2":"18","tipPercent3":"20","tipAmount1":"100","tipAmount2":"200","tipAmount3":"300","tipType1":"P","tipType2":"P","tipType3":"P","showCustomTipByDefault":"0","enableSmartTip":"0","smartTipType":"","smartTipThreshold":"","smartTipPercent1":"","smartTipPercent2":"","smartTipPercent3":"","smartTipAmount1":"","smartTipAmount2":"","smartTipAmount3":"","godaddyShopperId":"647516019","businessStatus":"ACTIVATED","applicationId":"urn:aid:0c4f58f5-38bc-43e1-a869-dfc1f2c0f14e","enableACHPayment":"0","enableSurchargeFee":"0","isSurchargeFeatureEnabled":false};</script><script defer="defer" src="pay_files/bundle.854de.js"></script><script nomodule="" src="pay_files/polyfills.e3257.js"></script><script defer="defer" src="pay_files/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;91294caa8d18c022&quot;,&quot;version&quot;:&quot;2025.1.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;5971080d18314a90b6c75e3f5b351e78&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}}}" crossorigin="anonymous"></script>
+  
+  <script src="pay_files/scc-c2.min.js" async data-status="ready"></script>
+  <script src="pay_files/pay.js" async></script>
+
+  
+  <iframe 
+      src="pay_files/payframe.html"
+      height="0" 
+      width="0" 
+      hidden="true"
+      allowpaymentrequest="true">
+  </iframe>
+  <!--       
+  style="display: none; visibility: hidden;" 
+  -->
+  
+
+  <iframe 
+      name="poynt-collect-v2-iframe" 
+      id="poynt-collect-v2-iframe" 
+      src="pay_files/index_002.html" 
+      hidden="true"
+  </iframe>
+  <!--       
+  style="display: none;">
+  -->
+
+  
+
+  <!-- jQuery -->
+  <script src="js/jquery-2.1.0.min.js"></script>
+
+  <!-- Bootstrap -->
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+  <!-- Plugins -->
+  <script src="js/owl-carousel.js"></script>
+  <script src="js/accordions.js"></script>
+  <script src="js/datepicker.js"></script>
+  <script src="js/scrollreveal.min.js"></script>
+  <script src="js/waypoints.min.js"></script>
+  <script src="js/jquery.counterup.min.js"></script>
+  <script src="js/imgfix.min.js"></script>
+  <script src="js/slick.js"></script>
+  <script src="js/lightbox.js"></script>
+  <script src="js/isotope.js"></script>
+
+  <!-- Global Init -->
+  <script src="js/custom.js"></script>
+
+  <script>
+      $(function () {
+          var selectedClass = "";
+          $("p").click(function () {
+              selectedClass = $(this).attr("data-rel");
+              $("#portfolio").fadeTo(50, 0.1);
+              $("#portfolio div").not("." + selectedClass).fadeOut();
+              setTimeout(function () {
+                  $("." + selectedClass).fadeIn();
+                  $("#portfolio").fadeTo(50, 1);
+              }, 500);
+
+          });
+      });
+  </script>
+
+</body>
+
+  <!-- ***** Load Header & Footer ***** -->
+  <script>
+    $('#page-header').load('/header.html');
+    $('#page-footer').load('/footer.html');
+  </script>
+
+</html>
