@@ -308,15 +308,20 @@
   
 
   <div id="app">
+
     <!-- ***** Header Start ***** -->
     <div id="page-header"></div>
 
-    
+    <div class="header">
+      <div class="header-container">
+        <div class="header-business-name">Round Trip RG</div>
+      </div>
+    </div>
   
     <div class="single-page-layout">
       <div class="single-page-item">
         <div class="container item-description-custom-amount">
-          <h1 class="item-layout-title">Online paymen</h1>
+          <h1 class="item-layout-title">Online payme</h1>
           <p class="item-layout-description">Please enter any details in the notes section</p>
           
           <form>
@@ -443,43 +448,7 @@
 
   
 
-  <!-- jQuery -->
-  <script src="js/jquery-2.1.0.min.js"></script>
 
-  <!-- Bootstrap -->
-  <script src="js/popper.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-
-  <!-- Plugins -->
-  <script src="js/owl-carousel.js"></script>
-  <script src="js/accordions.js"></script>
-  <script src="js/datepicker.js"></script>
-  <script src="js/scrollreveal.min.js"></script>
-  <script src="js/waypoints.min.js"></script>
-  <script src="js/jquery.counterup.min.js"></script>
-  <script src="js/imgfix.min.js"></script>
-  <script src="js/slick.js"></script>
-  <script src="js/lightbox.js"></script>
-  <script src="js/isotope.js"></script>
-
-  <!-- Global Init -->
-  <script src="js/custom.js"></script>
-
-  <script>
-      $(function () {
-          var selectedClass = "";
-          $("p").click(function () {
-              selectedClass = $(this).attr("data-rel");
-              $("#portfolio").fadeTo(50, 0.1);
-              $("#portfolio div").not("." + selectedClass).fadeOut();
-              setTimeout(function () {
-                  $("." + selectedClass).fadeIn();
-                  $("#portfolio").fadeTo(50, 1);
-              }, 500);
-
-          });
-      });
-  </script>
 
 </body>
 
