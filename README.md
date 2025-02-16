@@ -13,9 +13,6 @@ maybe javascript
 e.g. `https://roundtriprg.com/#` after pressing purchase now button, 
 `https://roundtriprg.com/#[object%20Object]` after pressing 'MEN'
 
--figure out how to run website on localhost
-nginx, node.js
-
 -user authentication features? like logging in/signing up
 old personal server project - pserv
 private folder?
