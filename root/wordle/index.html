@@ -16,11 +16,42 @@
 
   <body>
 
-    <!-- wordlists -->
-    <div style="position: fixed; right: 0; top: 10px; background-color: rgba(0, 0, 0, 0.5); color: white; padding: 10px; width: 200px; text-align: left; font-size: 14px;">
-      <a href="." onclick="set_wordlist('dicts/targetWords.json')">targetWords</a>
-      <a href="." onclick="set_wordlist('dicts/testWords.json')">testWords</a>
+    <!-- wordlists on the right side -->
+    <div style="position: fixed; right: 0; top: 10px; background-color: rgba(0, 0, 0, 0.5); color: white; padding: 10px; width: 220px; text-align: left; font-size: 16px;">
+      <span onclick="set_wordlist('dicts/targetWords.json', 'Normal');" class="wordlist-option">Normal</span><br>
+      <span onclick="set_wordlist('dicts/testWords.json', 'Test')" class="wordlist-option">Test</span>
     </div>
+
+    <!-- Current Selected Wordlist on the Left Side -->
+    <div id="current-wordlist" style="position: fixed; left: 0; top: 10px; background-color: rgba(0, 0, 0, 0.5); color: white; padding: 10px; width: 300px; text-align: left; font-size: 24px;">
+      Current Game:<br><span id="wordlist-name" style="font-size: 40px; color: #66ccff;">Not Selected</span>
+    </div>
+
+    <script>
+      // update the displayed current wordlist based on localStorage
+      function update_title() {
+        const wordlistName = localStorage.getItem("wordlist-name");
+        document.getElementById('wordlist-name').innerText = wordlistName;
+      }
+
+      // call the setup functions that call localStorage.getItem
+      function load_game() {
+        update_title();
+        fetch_wordlist_and_dictionary();
+      }
+
+      window.onload = function() {
+        //load_game();
+      };
+
+      // set the last selected wordlist
+      function set_wordlist(filename, name) {
+        localStorage.setItem("wordlist-file", filename);
+        localStorage.setItem("wordlist-name", name);
+        load_game();
+        //location.reload();  // reload the page
+      }
+    </script>
 
     <!-- wordle GUI -->
     <div class="alert-container" data-alert-container></div>

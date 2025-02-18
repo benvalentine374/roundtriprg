@@ -209,3 +209,22 @@ body {
 .alert.hide {
   opacity: 0;
 }
+
+.wordlist-title {     /* not used yet */
+  color: #66ccff;
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.wordlist-option {
+  color: #66ccff;   /* Nice light blue color */
+  font-size: 33px;
+  text-decoration: none; 
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.wordlist-option:hover {
+  /*color: #99ccff;   /* Slightly brighter blue color */
+  color: #FFFFFF;   /* White */
+}

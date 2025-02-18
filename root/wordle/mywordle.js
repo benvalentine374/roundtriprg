@@ -3,15 +3,6 @@
 // Custom features added by Ben Valentine on February 2025
 
 
-// given a json filename, 
-// set the last known wordlist in case of a page refresh
-function set_wordlist(filename) {
-  // store json filename as a string
-  localStorage.setItem("wordlist", filename);
-  // update the game parameters
-  fetch_wordlist_and_dictionary();
-}
-
 // initialize global variables for the game
 let dictionary = null;
 let targetWord = null;
@@ -20,7 +11,7 @@ let targetWord = null;
 function fetch_wordlist_and_dictionary() {
 
   // get the last known wordlist
-  let wordlistFile = localStorage.getItem("wordlist");
+  let wordlistFile = localStorage.getItem("wordlist-file");
   
   // fetch target wordlist JSON
   fetch(wordlistFile, { cache: 'no-store' }) // Do not cache the file
@@ -63,9 +54,6 @@ function fetch_wordlist_and_dictionary() {
     });
 }
 
-
-// run the game with the selected targetWord and dictionary
-window.onload = fetch_wordlist_and_dictionary();
 
 const keyboard = document.querySelector("[data-keyboard]");
 const guessGrid = document.querySelector("[data-guess-grid]");
