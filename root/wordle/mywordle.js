@@ -41,7 +41,7 @@ function fetch_wordlist_and_dictionary() {
       console.log(`Selected word has ${wordLength} letters.`);
 
       // choose the respective dictionary based on the word length
-      const dictionaryFile = `dictionary${wordLength}.json`;
+      const dictionaryFile = `dicts/dictionary${wordLength}.json`;
       console.log(`Loading dictionary from ${dictionaryFile}...`);
 
       // fetch the appropriate dictionary JSON based on word length

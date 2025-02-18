@@ -11,15 +11,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
     <title>Wordle?</title>
-    <script src="script.js" defer></script>
+    <script src="mywordle.js" defer></script>
   </head>
 
   <body>
 
     <!-- wordlists -->
     <div style="position: fixed; right: 0; top: 10px; background-color: rgba(0, 0, 0, 0.5); color: white; padding: 10px; width: 200px; text-align: left; font-size: 14px;">
-      <a href="." onclick="set_wordlist('targetWords.json')">targetWords</a>
-      <a href="." onclick="set_wordlist('testWords.json')">testWords</a>
+      <a href="." onclick="set_wordlist('dicts/targetWords.json')">targetWords</a>
+      <a href="." onclick="set_wordlist('dicts/testWords.json')">testWords</a>
     </div>
 
     <!-- wordle GUI -->
