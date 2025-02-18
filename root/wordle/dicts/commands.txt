@@ -5,7 +5,13 @@ This:
 -Sorts the result.
 -Removes duplicates.
 
+cat words.txt | tr '[:upper:]' '[:lower:]' | sort -u > words_cleaned.txt
+(make lowercase, sort, remove duplicates)
+
 Most Linux/macOS systems have a word list at /usr/share/dict/words. You can filter 6-letter words like this:
 grep -E '^[a-zA-Z]{6}$' /usr/share/dict/words > six_letter_words.txt
 This selects words with exactly 6 letters (both uppercase and lowercase).
+
+convert back to .txt from .json:
+jq -r '.[]' input.json > output.txt
 
