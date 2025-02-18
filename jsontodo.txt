@@ -1,0 +1,19 @@
+user picks a category (target words)
+
+fetch targetWords.json, do not cache.
+
+parse into string array targetWords
+
+get the length of targetWords
+
+pick a random string targetWord
+
+get the length of that targetWord
+
+choose respective dictionary (e.g. dictionary6.json for a 6-letter word)
+
+load appropriate letters, etc...
+
+
+
+user wins/loses, press a play again button to refresh the page, restarting the game.
