@@ -207,6 +207,34 @@ header
 --------------------------------------------- 
 */
 
+.brand-name {
+  position: absolute;
+  top: 30px; /* Adjust vertical positioning */
+  left: 0; /* Align to the left */
+  font-family: 'Poppins', sans-serif;
+  font-size: 30px; /* Main title size */
+  font-weight: 600;
+  color: #000;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 1000;
+}
+
+.brand-subtitle {
+  position: absolute;
+  top: 65px; /* Places it below the main title */
+  left: 5px; /* Slight indent for alignment */
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px; /* Smaller font */
+  font-weight: 400; /* Regular weight */
+  color: #333; /* Slightly softer black */
+  text-transform: none; /* Keeps it readable */
+}
+
+
+
+
 .background-header {
   border-bottom: none !important;
   background-color: #fff;
